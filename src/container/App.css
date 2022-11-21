@@ -1,0 +1,37 @@
+body,
+html {
+    background: url(weather.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    min-height: 100vh;
+
+}
+
+.container {
+    margin: 30px;
+    margin-left: 600px;
+
+    height: 80px;
+    width: 400px;
+    background-color: antiquewhite;
+}
+
+@font-face {
+    font-family: 'Colder Weather Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Colder Weather Regular'), url('ColderWeather-Regular.woff') format('woff');
+}
+
+
+
+h1,
+header {
+    font-family: 'Colder Weather Regular';
+    font-weight: 200;
+    color: #090801;
+    border-radius: 20px;
+}
