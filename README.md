@@ -6,7 +6,7 @@ It displays Weather for next five days -https://developer.accuweather.com/accuwe
 
 ![](./Preview/Image.png)
 
-![](./Preview/Image.png)
+![](./Preview/Image2.png)
 
 
 
