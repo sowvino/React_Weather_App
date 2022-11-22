@@ -11,18 +11,21 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 
 
 function App() {
+  ///Assigning the variables to be used 
   const [city, setCity] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState();
 
-
-  const searchForecast = async function () {
+  ///Getting Forecast from AccuWeather Api
+  async function searchForecast() {
     setWeather();
     setLoading(true);
 
+    ///Fetching Apikey and Cityurl from API.JS 
     axios.get(`${CITY_URL}apikey=${API_KEY}&q=${city}`)
       .then(response => {
         setLoading(false);
+        ///Response data is greater than 0 then return the value
         if (response.data.length > 0) {
           axios.get(`${WEATHER_URL}${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
@@ -32,35 +35,38 @@ function App() {
       });
   }
 
+
   const handleWeather = (e) => {
     e.preventDefault();
     searchForecast();
   }
+  ///Fetching city name from input target field
   const name = (e) => {
     setCity(e.target.value);
   }
+
   return (
-    <div >
-      <header className='f1 tc mt5 '>
+    <div className='tc' >
+      <header className='f1 mt5 '>
         Weather APP
       </header>
-      <form className='container tc pa2' >
+      <form className='container  pa2' >
         <input className="pa3 ba b--silver bg-washed-red "
           autoComplete='off'
           onChange={name}
           placeholder='Enter city Name'
         />
-        <button type='submit' className='pv3 tc bn bg-animate bg-black-70 
+        <button type='submit' className='pv3  bn bg-animate bg-black-70 
         hover-bg-black white pointer br--right-ns' onClick={handleWeather}>Weather Info!!</button>
 
       </form>
-      {city && (<ScaleLoader loading={loading} size={30} color="#FF6300" className='tc' />)}
+      {city && (<ScaleLoader loading={loading} size={30} color="#FF6300" />)}
       <ErrorBoundry>
 
         {weather && (<Cardlist city={city} weather={weather} />)}
 
       </ErrorBoundry>
-      <div className='tc bg-silver'>©️ 2022 sowmi_vino</div>
+      <div className='bg-silver'>©️ 2022 sowmi_vino</div>
 
     </div>
   );

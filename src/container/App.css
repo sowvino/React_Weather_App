@@ -11,9 +11,8 @@ html {
 }
 
 .container {
-    margin: 30px;
-    margin-left: 600px;
 
+    margin: 20px auto 0 auto;
     height: 80px;
     width: 400px;
     background-color: antiquewhite;
